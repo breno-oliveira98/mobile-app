@@ -65,7 +65,7 @@ const CategoriaForm = ({addCategoria}) => {
       {/* EXIBIR CATEGORIAS */}
       <Section
         title={"Categorias Existentes"}
-        space={"lg:grid grid-cols-3 gap-2"}
+        space={"lg:grid grid-cols-3 gap-2 overflow-y-auto max-h-96"}
       >
         {arrayCategory.length > 0 ? arrayCategory.map((item, index) => (
           <div

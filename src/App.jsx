@@ -1,17 +1,15 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Layout from "./components/Layout";
-import { VisibilityProvider } from "./contexts/VisibilityContext";
+import {AuthContext} from './contexts/AuthContext'
+import { useContext } from "react";
+import PrivateRoutes from "./routes/private.routes";
+import PublicRoutes from "./routes/public.routes";
 
 function App() {
+  const {auth} = useContext(AuthContext)
+
+  
   return (
-    <VisibilityProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Layout />}></Route>
-        </Routes>
-      </Router>
-    </VisibilityProvider>
+      auth ? <PrivateRoutes /> : <PublicRoutes />
   );
 }
 
