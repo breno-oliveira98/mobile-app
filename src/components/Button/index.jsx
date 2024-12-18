@@ -3,7 +3,7 @@ const Button = ({
   txtColor = "text-white",
   radius = "rounded-md",
   type = "button",
-  label,
+  label = "Botão",
   padding = "px-2 py-2",
   onClick
 }) => {
