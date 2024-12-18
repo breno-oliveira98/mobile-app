@@ -3,12 +3,15 @@ import Button from "../Button";
 import { useVisibility } from "../../contexts/VisibilityContext";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar";
+import { AuthContext } from "../../contexts/AuthContext";
+import { useContext } from "react";
 
 const Header = () => {
+  const { auth } = useContext(AuthContext);
   const { toggleVisibility } = useVisibility();
   const array = [];
   return (
-    <header className="w-full flex flex-col items-center justify-center py-3 bg-blue-500 h-fit">
+    <header className="w-full flex flex-col items-center justify-center py-5 bg-blue-500 h-fit">
       <div className="container items-center flex gap-4 mx-auto">
         <h1 className="text-2xl font-bold text-white">Loja Online</h1>
         <input
@@ -16,10 +19,16 @@ const Header = () => {
           placeholder="Buscar produtos..."
           type="text"
         />
-        <Button label="Entrar" bgColor="" />
-        <Link to={"/cadastro"}>
-          <Button label="Cadastre-se" />
-        </Link>
+        {!auth ? (
+          <div className="flex">
+            <Link to={"/login"}>
+              <Button label="Entrar" />
+            </Link>
+            <Link to={"/cadastro"}>
+              <Button label="Cadastre-se" bgColor="underline" />
+            </Link>
+          </div>
+        ) : null}
 
         <div className="relative">
           <BiCart
