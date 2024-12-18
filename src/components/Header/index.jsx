@@ -2,12 +2,13 @@ import { BiCart } from "react-icons/bi";
 import Button from "../Button";
 import { useVisibility } from "../../contexts/VisibilityContext";
 import { Link } from "react-router-dom";
+import Navbar from "../Navbar";
 
 const Header = () => {
   const { toggleVisibility } = useVisibility();
   const array = [];
   return (
-    <header className="w-full flex items-center bg-blue-500 h-20">
+    <header className="w-full flex flex-col items-center justify-center py-3 bg-blue-500 h-fit">
       <div className="container items-center flex gap-4 mx-auto">
         <h1 className="text-2xl font-bold text-white">Loja Online</h1>
         <input
@@ -36,6 +37,7 @@ const Header = () => {
           )}
         </div>
       </div>
+      <Navbar />
     </header>
   );
 };

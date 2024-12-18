@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header";
 import Cart from "../Cart";
 import { useVisibility } from "../../contexts/VisibilityContext";
-import Welcome from '../../pages/welcome'
+import ProductCard from "../ProductCard";
 const Layout = () => {
   const { isVisible } = useVisibility();
 
@@ -12,7 +12,7 @@ const Layout = () => {
         <Header />
         <div className="container mx-auto flex-1 h-screen mt-5 px-2">
           <Outlet />
-          {isVisible ? <Cart /> : <Welcome />}
+          {isVisible ? <Cart /> : <ProductCard />}
           
         </div>
       </div>
